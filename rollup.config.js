@@ -8,7 +8,7 @@ export default {
   output: [
     {
       format: 'umd',
-      name: 'digest',
+      name: 'dataJoint',
       file: `dist/${name}.js`,
       sourcemap: true,
       banner: `// Version ${version} ${name} - ${homepage}`
