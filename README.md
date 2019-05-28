@@ -1,16 +1,19 @@
 # data-joint
-Perform data joins with any type of JavaScript objects.
+
+Library to perform data joins with any type of JavaScript objects.
+Useful in digest cycles where it's important to minimize changes to a view for performance reasons, such as DOM manipulation.
+The module binds data points to objects via hidden attributes, and performs diffing comparisons across multiple iterations to ensure objects are not created or removed unnecessarily, thus keeping view changes to a minimum.
 
 [![NPM](https://nodei.co/npm/data-joint.png?compact=true)](https://nodei.co/npm/data-joint/)
 
 ## Quick start
 
 ```
-import digest from 'data-joint';
+import dataJoint from 'data-joint';
 ```
 or
 ```
-const digest = require('data-joint');
+const dataJoint = require('data-joint');
 ```
 or even
 ```
@@ -21,13 +24,13 @@ then
 const myData = [{ id: 0, val: 2 }, { id: 1, val: 4 }, { id: 2, val: 7 }];
 const myView = new Set();
 
-digest(myData, [...myView], 
+dataJoint(myData, [...myView], 
     obj => myView.add(obj), // append obj
-    obj => myView.remove(obj), // remove obj
+    obj => myView.delete(obj), // remove obj
     {
         createObj: () => ({}),
-        updateObj: (obj, d) => { d.double = d.val * 2 },
-        exitObj: obj => { d.double = 0 },
+        updateObj: (obj, d) => { obj.double = d.val * 2 },
+        exitObj: obj => { obj.double = 0 },
         idAccessor: d => d.id
     }
 );
@@ -37,7 +40,7 @@ digest(myData, [...myView],
 
 ### Syntax
 
-<b>digest</b>(<i>data</i>, <i>existingObjs</i>, <i>appendObjFn</i>, <i>removeObjFn</i>, [{<i>options</i>}]);
+<b>dataJoint</b>(<i>data</i>, <i>existingObjs</i>, <i>appendObjFn</i>, <i>removeObjFn</i>, [{<i>options</i>}]);
 
 ### Arguments
 
@@ -60,6 +63,6 @@ An optional configuration object supporting the additional arguments:
 | <b>exitObj</b> | The method to handle exiting objects which no longer have a corresponding data point. The unbound object is passed as single argument: `obj => { ... }`. This method is called prior to removing it from the view via `removeObjectFn`. | `obj => {}` |
 | <b>objBindAttr</b> | The attribute name used to bind data points to view objects. Each data point passed through the digest will be added this attribute, and it will be used for diffing across multiple iterations. | `__obj` |
 | <b>dataBindAttr</b> | The attribute name used to bind view objects to data points. Each object maintained by the digest will be added this attribute, and it will be used for diffing across multiple iterations. | `__data` |
-| <b>idAccessor</b> | A data point accessor function to extract the point unique identifier. This used for comparing data points across multiple iterations. If no `idAccessor` is supplied the, data point object reference will be used instead for comparisons. The data point is passed as single argument: `d => {...}`. The method should return a unique identifier. | `undefined` |
+| <b>idAccessor</b> | A data point accessor function to extract the point unique identifier. This is used for comparing data points across multiple iterations. If no `idAccessor` is supplied, the data point object reference will be used instead for comparisons. The data point is passed as single argument: `d => {...}`. The method should return a unique identifier. | `undefined` |
 
 
