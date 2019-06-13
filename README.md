@@ -1,10 +1,13 @@
-# data-joint
+data-joint
+==========
+
+[![NPM package][npm-img]][npm-url]
+[![Build Size][build-size-img]][build-size-url]
+[![Dependencies][dependencies-img]][dependencies-url]
 
 Library to perform data joins with any type of JavaScript objects.
 Useful in digest cycles where it's important to minimize changes to a view for performance reasons, such as DOM manipulation.
 The module binds data points to objects via hidden attributes, and performs diffing comparisons across multiple iterations to ensure objects are not created or removed unnecessarily, thus keeping view changes to a minimum.
-
-[![NPM](https://nodei.co/npm/data-joint.png?compact=true)](https://nodei.co/npm/data-joint/)
 
 ## Quick start
 
@@ -66,3 +69,9 @@ An optional configuration object supporting the additional arguments:
 | <b>idAccessor</b> | A data point accessor function to extract the point unique identifier. This is used for comparing data points across multiple iterations. If no `idAccessor` is supplied, the data point object reference will be used instead for comparisons. The data point is passed as single argument: `d => {...}`. The method should return a unique identifier. | `undefined` |
 
 
+[npm-img]: https://img.shields.io/npm/v/data-joint.svg
+[npm-url]: https://npmjs.org/package/data-joint
+[build-size-img]: https://img.shields.io/bundlephobia/minzip/data-joint.svg
+[build-size-url]: https://bundlephobia.com/result?p=data-joint
+[dependencies-img]: https://img.shields.io/david/vasturiano/data-joint.svg
+[dependencies-url]: https://david-dm.org/vasturiano/data-joint
