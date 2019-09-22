@@ -67,6 +67,7 @@ An optional configuration object supporting the additional arguments:
 | <b>objBindAttr</b> | The attribute name used to bind data points to view objects. Each data point passed through the digest will be added this attribute, and it will be used for diffing across multiple iterations. | `__obj` |
 | <b>dataBindAttr</b> | The attribute name used to bind view objects to data points. Each object maintained by the digest will be added this attribute, and it will be used for diffing across multiple iterations. | `__data` |
 | <b>idAccessor</b> | A data point accessor function to extract the point unique identifier. This is used for comparing data points across multiple iterations. If no `idAccessor` is supplied, the data point object reference will be used instead for comparisons. The data point is passed as single argument: `d => {...}`. The method should return a unique identifier. | `undefined` |
+| <b>purge</b> | A boolean value. If set to `true` it will bypass the data diffing, resulting in all the `existingObjs` being marked for removal and new objects created for the all the items in the input `data`. | `false` |
 
 
 [npm-img]: https://img.shields.io/npm/v/data-joint.svg

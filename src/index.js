@@ -41,7 +41,8 @@ function dataBindDiff(
   {
     objBindAttr = '__obj',
     dataBindAttr = '__data',
-    idAccessor
+    idAccessor,
+    purge = false
   }
 ) {
   const isObjValid = obj => obj.hasOwnProperty(dataBindAttr);
@@ -51,7 +52,9 @@ function dataBindDiff(
   const prevD = existingObjs.filter(isObjValid).map(obj => obj[dataBindAttr]);
   const nextD = data;
 
-  const diff = diffArrays(prevD, nextD, idAccessor);
+  const diff = purge
+    ? { enter: nextD, exit: prevD, update: [] } // don't diff data in purge mode
+    : diffArrays(prevD, nextD, idAccessor);
 
   diff.update = diff.update.map(([prevD, nextD]) => {
     if (prevD !== nextD) {
@@ -79,10 +82,10 @@ function viewDigest(
     exitObj = obj => {},
     objBindAttr = '__obj',
     dataBindAttr = '__data',
-    idAccessor
+    ...dataDiffOptions
   }
 ) {
-  const { enter, update, exit } = dataBindDiff(data, existingObjs, { objBindAttr, dataBindAttr, idAccessor });
+  const { enter, update, exit } = dataBindDiff(data, existingObjs, { objBindAttr, dataBindAttr, ...dataDiffOptions });
 
   const newObjs = createObjs(enter);
   const pointsData = [...enter, ...update];
