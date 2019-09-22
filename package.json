@@ -1,6 +1,6 @@
 {
   "name": "data-joint",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Perform data joins with any type of JS objects",
   "unpkg": "dist/data-joint.min.js",
   "main": "dist/data-joint.common.js",
