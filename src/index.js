@@ -87,19 +87,21 @@ function viewDigest(
 ) {
   const { enter, update, exit } = dataBindDiff(data, existingObjs, { objBindAttr, dataBindAttr, ...dataDiffOptions });
 
+  // Remove exiting points
+  exit.forEach(d => {
+    const obj = d[objBindAttr];
+    delete(d[objBindAttr]); // unbind obj
+
+    exitObj(obj);
+    removeObj(obj);
+  });
+
   const newObjs = createObjs(enter);
   const pointsData = [...enter, ...update];
   updateObjs(pointsData);
 
   // Add new points
   newObjs.forEach(appendObj);
-
-  // Remove exiting points
-  exit.forEach(d => {
-    const obj = d[objBindAttr];
-    exitObj(obj);
-    removeObj(obj);
-  });
 
   //
 
