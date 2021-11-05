@@ -11,19 +11,19 @@ The module binds data points to objects via hidden attributes, and performs diff
 
 ## Quick start
 
-```
+```js
 import dataJoint from 'data-joint';
 ```
 or
-```
+```js
 const dataJoint = require('data-joint');
 ```
 or even
-```
+```html
 <script src="//unpkg.com/data-joint"></script>
 ```
 then
-```
+```js
 const myData = [{ id: 0, val: 2 }, { id: 1, val: 4 }, { id: 2, val: 7 }];
 const myView = new Set();
 
