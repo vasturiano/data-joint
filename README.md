@@ -3,7 +3,7 @@ data-joint
 
 [![NPM package][npm-img]][npm-url]
 [![Build Size][build-size-img]][build-size-url]
-[![Dependencies][dependencies-img]][dependencies-url]
+[![NPM Downloads][npm-downloads-img]][npm-downloads-url]
 
 Library to perform data joins with any type of JavaScript objects.
 Useful in digest cycles where it's important to minimize changes to a view for performance reasons, such as DOM manipulation.
@@ -70,9 +70,9 @@ An optional configuration object supporting the additional arguments:
 | <b>purge</b> | A boolean value. If set to `true` it will bypass the data diffing, resulting in all the `existingObjs` being marked for removal and new objects created for the all the items in the input `data`. | `false` |
 
 
-[npm-img]: https://img.shields.io/npm/v/data-joint.svg
+[npm-img]: https://img.shields.io/npm/v/data-joint
 [npm-url]: https://npmjs.org/package/data-joint
-[build-size-img]: https://img.shields.io/bundlephobia/minzip/data-joint.svg
+[build-size-img]: https://img.shields.io/bundlephobia/minzip/data-joint
 [build-size-url]: https://bundlephobia.com/result?p=data-joint
-[dependencies-img]: https://img.shields.io/david/vasturiano/data-joint.svg
-[dependencies-url]: https://david-dm.org/vasturiano/data-joint
+[npm-downloads-img]: https://img.shields.io/npm/dt/data-joint
+[npm-downloads-url]: https://www.npmtrends.com/data-joint
