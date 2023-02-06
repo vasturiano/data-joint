@@ -14,11 +14,7 @@ The module binds data points to objects via hidden attributes, and performs diff
 ```js
 import dataJoint from 'data-joint';
 ```
-or
-```js
-const dataJoint = require('data-joint');
-```
-or even
+or using a *script* tag
 ```html
 <script src="//unpkg.com/data-joint"></script>
 ```
