@@ -8,6 +8,7 @@
   "module": "dist/data-joint.mjs",
   "types": "dist/data-joint.d.ts",
   "exports": {
+    "types": "./dist/data-joint.d.ts",
     "umd": "./dist/data-joint.min.js",
     "default": "./dist/data-joint.mjs"
   },
@@ -43,19 +44,19 @@
     "prepare": "npm run build"
   },
   "dependencies": {
-    "index-array-by": "^1.4.0"
+    "index-array-by": "^1.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.12",
-    "@babel/preset-env": "^7.20.2",
-    "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-commonjs": "^24.0.1",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "@rollup/plugin-terser": "^0.4.0",
-    "rimraf": "^4.1.2",
-    "rollup": "^3.14.0",
-    "rollup-plugin-dts": "^5.1.1",
-    "typescript": "^4.9.5"
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.28.1",
+    "rollup-plugin-dts": "^6.1.1",
+    "typescript": "^5.7.2"
   },
   "engines": {
     "node": ">=12"
