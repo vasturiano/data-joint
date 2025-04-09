@@ -16,7 +16,7 @@ import dataJoint from 'data-joint';
 ```
 or using a *script* tag
 ```html
-<script src="//unpkg.com/data-joint"></script>
+<script src="//cdn.jsdelivr.net/npm/data-joint"></script>
 ```
 then
 ```js
